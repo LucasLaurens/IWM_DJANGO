@@ -5,6 +5,7 @@
 {% block content %}
 <p class="content">Your basket is :</p>
 <div class="columns is-multiline">
+<p class="content">Your basket is ({{ items|length }}):</p>
 <form class="" action="basket" method="post">
         {% csrf_token %}
         {% for item in items %}

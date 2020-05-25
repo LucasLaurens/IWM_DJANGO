@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.views.generic.base import TemplateView
 from django.shortcuts import get_object_or_404, redirect
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.db.models import Count
 
 
 from shopping.models import Clothes, Item, User
