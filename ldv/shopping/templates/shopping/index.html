@@ -1,0 +1,15 @@
+{% extends 'shopping/base.html' %}
+
+{% block content %}
+    <p>test</p>
+    <form action="" method="POST">
+        {{csrf_token}}
+    </form>
+    {{test_var}}
+    {% for clothe in clothes %}
+        <a href="{{clothe.id}}">read more</a>
+        <h2>{{ clothe.name }}</h2>
+        <p>{{ clothe.description }}</p>
+        <p>{{ clothe.price }}</p>
+    {% endfor %}
+{% endblock %}
