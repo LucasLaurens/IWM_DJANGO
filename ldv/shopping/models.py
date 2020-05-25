@@ -8,7 +8,6 @@ class User(AbstractUser):
     """
         Shopping User
     """
-    clothes = models.ManyToManyField('Clothes')
 
 
 class Item(models.Model):
