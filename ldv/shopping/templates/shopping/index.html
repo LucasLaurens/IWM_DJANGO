@@ -7,6 +7,9 @@
     </form>
     {{test_var}}
     {% for clothe in clothes %}
+        <!-- <figure class="image is-128x128">
+            <img src="{{ clothe.image.url }}">
+        </figure> -->
         <a href="{{clothe.id}}">read more</a>
         <h2>{{ clothe.name }}</h2>
         <p>{{ clothe.description }}</p>
