@@ -1,10 +1,12 @@
 from django.shortcuts import render
 from django.views.generic.base import TemplateView
-from django.shortcuts import get_object_or_404
+from django.shortcuts import get_object_or_404, redirect
 from django.contrib.auth.mixins import LoginRequiredMixin
 
 
 from shopping.models import Clothes, Item, User
+
+import copy
 
 # Create your views here.
 
@@ -18,6 +20,12 @@ class Index(LoginRequiredMixin, TemplateView):
     def get(self, request, *args, **kwargs):
         clothes = Clothes.objects.all()
         return render(request, self.template_name, {'test_var': 42, 'clothes': clothes})
+
+    def post(self, request, *args, **kwargs):
+        items = copy.copy(request.POST)
+        items.pop('csrfmiddlewaretoken')
+        Item.objects.filter(id__in=items.keys()).delete()
+        return redirect('basket')
 
 
 class Details(LoginRequiredMixin, TemplateView):
