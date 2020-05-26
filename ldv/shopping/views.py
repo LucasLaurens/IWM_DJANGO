@@ -24,7 +24,7 @@ class Index(LoginRequiredMixin, TemplateView):
 
     def post(self, request, *args, **kwargs):
         items = copy.copy(request.POST)
-        items.pop('csrfmiddlewaretoken')
+        items.pop('csrfmiddlewaretoken', None)
         Item.objects.filter(id__in=items.keys()).delete()
         return redirect('basket')
 

@@ -29,7 +29,7 @@ class Clothes(models.Model):
     name = models.CharField(max_length=255)
     description = models.TextField()
     price = models.FloatField(default=50)
-    image = models.ImageField(null=True)
+    image = models.ImageField(null=True, default="/media/robe.jpg")
 
     def description_trunc(self):
         return self.description[:3]

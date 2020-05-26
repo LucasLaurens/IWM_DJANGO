@@ -23,6 +23,10 @@ Code used during the courses for the Leonard De Vinci school
 
 * python manage.py runserver
 
+### Run tests
+
+* python manage.py test
+
 
 ## Arborescence
 
