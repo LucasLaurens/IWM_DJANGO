@@ -3,6 +3,7 @@ from django.views.generic.base import TemplateView
 from django.shortcuts import get_object_or_404, redirect
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.db.models import Count
+from django.contrib.auth import views as auth_views
 
 
 from shopping.models import Clothes, Item, User
@@ -57,3 +58,15 @@ class Basket(LoginRequiredMixin, TemplateView):
     def get(self, request, *args, **kwargs):
         return render(request, self.template_name,
                         {'items': request.user.items.all()})
+
+
+class Login(auth_views.LoginView):
+    """
+    """
+
+    redirect_authenticated_user = True
+
+
+class Logout(auth_views.LogoutView):
+    """
+    """
