@@ -62,6 +62,7 @@ class Basket(LoginRequiredMixin, TemplateView):
 
 class Login(auth_views.LoginView):
     """
+    Redirect user if already authenticated
     """
 
     redirect_authenticated_user = True
@@ -69,4 +70,5 @@ class Login(auth_views.LoginView):
 
 class Logout(auth_views.LogoutView):
     """
+    Do nothing more that LogoutView
     """
